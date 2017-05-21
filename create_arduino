@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# default project name
-projectName="$1"
-projectPath="$(realpath $2/$projectName)"
-scriptPath="$(pwd)"
+projectName="$1"								# project name
+projectPath="$(realpath $2/$projectName)"		# project path
+scriptPath="$(pwd)"								# current path of the script
 
+# check for directory provided existance
 if [ ! -d "$(realpath $2)" ]; then
 	echo "Directory provided does not exists"
 	echo "Creating Directory"
 	mkdir $(realpath $2)
 else
+	# check if the project being created already exists
 	if [ -d "$projectPath" ]; then
 		echo "Project already exists"
 		exit 2
@@ -26,7 +27,7 @@ git submodule update --init --recursive
 # remove all the git files
 sudo rm -r "$projectPath/.git" "$projectPath/.gitignore" "$projectPath/.gitmodules"
 
-# remove all the unnecessary files
+# remove all other unnecessary files
 rm "$projectPath/bare-arduino.sublime-project"
 rm "$projectPath/CONTRIBUTING.md"
 rm "$projectPath/LICENSE.md"
