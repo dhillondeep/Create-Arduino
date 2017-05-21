@@ -2,9 +2,7 @@
 
 ## About
 
-[Bare Arduino Project](https://github.com/ladislas/Bare-Arduino-Project) let's you create Arduino projects without using Arduino IDE. You can use your favorite text editor such as Vim or SublimeText to do so.
-
-For further information, check their [README.md](https://github.com/ladislas/Bare-Arduino-Project/README.md).
+[Bare Arduino Project](https://github.com/ladislas/Bare-Arduino-Project) let's you create Arduino projects without using Arduino IDE. You can use your favorite text editor such as Vim or SublimeText to do so. For further information, check their [README.md](https://github.com/ladislas/Bare-Arduino-Project/blob/master/README.md).
 
 This repository contains a shell script that let's you create Arduino projects using Bare Arduino Project very easily. It removes unnecessary files and gives you a simple project up and running in no time.
 
@@ -68,12 +66,13 @@ Go to Create-Arduino folder and run create-arduino shell script
 
 This script takes in two parameters. The first parameter is the name of the project and the second parameter is the location of the project.
 
-``Bash
+```Bash
 $ ./create-arduino PROJECT_NAME PROJECT_LOCATION
+```
 
 ### 3. Install `pySerial`
 
-To upload the program, we need to reset the Arduino board. This is done using a `python script` stored in `Arduino-Makefile/bin` which is inside the project just created
+To upload the program, we need to reset the Arduino board. This is done using a `python script` stored in `Arduino-Makefile/bin` which is inside the project you just created
 
 First, if you don't already have Python, you can install it
 
@@ -90,7 +89,7 @@ $ pip install pyserial
 
 ### 4. Copy and edit a `Makefile`
 
-To make sure you're up and running to hack Arduino, we are going to compile some code. We need to have a Makefile for each project we want to compile.
+To compile arduino code, we need to have a Makefile for the project we want to compile
 
 `cd` to `src/Main` folder of your project:
 
@@ -121,7 +120,7 @@ Modify the `Makefile` to suit your needs:
 
 ### 6. Write Arduino Code
 
-`Main.cpp` inside `src/Main` folder of your project is empty and does not contain any code. You have to write Arduino code inorder for the project to compile.
+`Main.cpp` inside `src/Main` folder of your project is empty and does not contain any code. You have to write Arduino code in order for the project to compile.
 
 Sample code
 
