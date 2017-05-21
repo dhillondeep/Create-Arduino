@@ -4,7 +4,7 @@
 
 [Bare Arduino Project](https://github.com/ladislas/Bare-Arduino-Project) let's you create Arduino projects without using Arduino IDE. You can use your favorite text editor such as Vim or SublimeText to do so. For further information, check their [README.md](https://github.com/ladislas/Bare-Arduino-Project/blob/master/README.md).
 
-This repository contains a shell script that let's you create Arduino projects using Bare-Arduino-Project very easily. The focus of this repository is to create single working project while Bare-Arduino-Project focuses on creating a folder to hold of bunch of arduino projects and they will only work if they are in the folder. So, Create-Arduino removes unnecessary files and gives you a simple project up and running in no time.
+This repository contains a shell script that let's you create Arduino projects using Bare-Arduino-Project very easily. The focus of this repository is to create single working project while Bare-Arduino-Project focuses on creating a folder to hold bunch of arduino projects and they will only work if they are in the folder. So, Create-Arduino removes unnecessary files and gives you a simple project up and running in no time.
 
 
 ## How to Use
@@ -107,7 +107,7 @@ $ cp ../Makefile-OSX.mk ./Makefile
 $ cp ../../Makefile-Linux.mk ./Makefile
 ```
 
-`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. They way it has been setup from default will not work in our case. You have to edit it to following:
+`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. The way it has been setup from default will not work in our case. You have to edit it to following:
 
 ```Bash
 PROJECT_DIR       = $(abspath $(shell basename $(CURDIR))/../..)
