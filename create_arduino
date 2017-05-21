@@ -3,6 +3,7 @@
 # default project name
 projectName="$1"
 projectPath="$(realpath $2/$projectName)"
+scriptPath="$(pwd)"
 
 if [ ! -d "$(realpath $2)" ]; then
 	echo "Directory provided does not exists"
@@ -34,4 +35,5 @@ rm -r "$projectPath/src/BarProject"
 rm -r "$projectPath/src/FooProject"
 rm -r "$projectPath/lib/FooLib"
 rm -r "$projectPath/lib/BarLib"
-touch "$projectPath/src/Main.cpp"
+cp "$scriptPath/project_files/main.cpp" "$projectPath/src"
+cp "$scriptPath/project_files/Makefile-Linux.mk" "$projectPath/src/Makefile"
