@@ -91,27 +91,21 @@ $ pip install pyserial
 
 To compile arduino code, we need to have a Makefile for the project we want to compile
 
+By default, Makefile inside `src` folder of your project is for Linux. If you are working on OS X, you have to delete this file and copy the OS X file
+
 `cd` to `src` folder of your project:
 
 ```Bash
 $ cd src
 ```
 
-Then copy the `Makefile-Example.mk`:
+Then copy the `Makefile-OS.mk`:
 
 ```Bash
-# if you are on OS X
 $ cp ../Makefile-OSX.mk ./Makefile
-
-# or if you're running Linux
-$ cp ../../Makefile-Linux.mk ./Makefile
 ```
 
-`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. The way it has been setup from default will not work in our case. You have to edit it to following:
-
-```Bash
-PROJECT_DIR       = $(abspath $(shell basename $(CURDIR))/../..)
-```
+`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. The way it has been setup from default will not work for cretain cases. If your `Makefile` does not work, you have to set the `PROJECT_DIR` to your project location manually.
 
 You can modify the `Makefile` to suit your needs:
 
@@ -123,26 +117,6 @@ You can modify the `Makefile` to suit your needs:
   * Look at the config keys for this board (in this case `pro.menu.cpu.8MHzatmega328=ATmega...`)
   * So `BOARD_TAG = pro` and `BOARD_SUB = 8MHzatmega328`
 * `MONITOR_PORT` is the device full path (required if you want to upload to the board). An example is `/dev/tty.usbserial-A20356BI`
-
-### 6. Write Arduino Code
-
-`Main.cpp` inside `src/Main` folder of your project is empty and does not contain any code. You have to write Arduino code in order for the project to compile.
-
-Sample code
-
-```c++
-#include <Arduino.h>
-
-void setup() {
-	Serial.begin(115200);
-	delay(1000);
-}
-
-void loop() {
-	Serial.println("Hello world");
-}
-
-```  
 
 ### 7. Compile and upload your code
 
