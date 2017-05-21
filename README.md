@@ -93,15 +93,10 @@ To compile arduino code, we need to have a Makefile for the project we want to c
 
 By default, Makefile inside `src` folder of your project is for Linux. If you are working on OS X, you have to delete this file and copy the OS X file
 
-`cd` to `src` folder of your project:
-
 ```Bash
+# OS X users
 $ cd src
-```
-
-Then copy the `Makefile-OS.mk`:
-
-```Bash
+$ rm Makefile
 $ cp ../Makefile-OSX.mk ./Makefile
 ```
 
