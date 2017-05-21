@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# default project name
+projectName="$1"
+projectPath="$(realpath $2/$projectName)"
+
+if [ ! -d "$(realpath $2)" ]; then
+	echo "Directory provided does not exists"
+	echo "Creating Directory"
+	mkdir $(realpath $2)
+else
+	if [ -d "$projectPath" ]; then
+		echo "Project already exists"
+		exit 2
+	fi
+fi
+
+# get Bare-Arduino-Project from github
+git clone https://github.com/ladislas/Bare-Arduino-Project "$projectPath"
+
+# initialize and update submodules
+cd "$projectPath"
+git submodule update --init --recursive
+
+# remove all the git files
+sudo rm -r "$projectPath/.git" "$projectPath/.gitignore" "$projectPath/.gitmodules"
+
+# remove all the unnecessary files
+rm "$projectPath/bare-arduino.sublime-project"
+rm "$projectPath/CONTRIBUTING.md"
+rm "$projectPath/LICENSE.md"
+rm "$projectPath/README.md"
+rm -r "$projectPath/src/BarProject"
+rm -r "$projectPath/src/FooProject"
+rm -r "$projectPath/lib/FooLib"
+rm -r "$projectPath/lib/BarLib"
+mkdir "$projectPath/src/Main"
+touch "$projectPath/src/Main/Main.cpp"
