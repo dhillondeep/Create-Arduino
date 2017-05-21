@@ -1,4 +1,4 @@
-# Create Arduino Project Using Bare Arduino Project
+# Create Arduino Projects
 
 ## About
 
