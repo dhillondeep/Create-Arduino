@@ -155,4 +155,4 @@ $ make upload
 
 So, every time you want to create an arduino project, just call the script with appropriate parameters and it will create an Arduino project for you.
 
-This install guide is inspired by the install guide of Bare-Arduino-Project. For the full procedure, please check [INSTALL.md](https://github.com/ladislas/Bare-Arduino-Project/blob/master/INSTALL.md).
+This install guide is inspired by the install guide of Bare-Arduino-Project. For the full procedure and more details, please check their [INSTALL.md](https://github.com/ladislas/Bare-Arduino-Project/blob/master/INSTALL.md).
