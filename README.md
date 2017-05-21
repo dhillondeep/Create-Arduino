@@ -94,13 +94,13 @@ To compile arduino code, we need to have a Makefile for the project we want to c
 By default, Makefile inside `src` folder of your project is for Linux. If you are working on OS X, you have to delete this file and copy the OS X file
 
 ```Bash
-# OS X users
+# For OS X users only
 $ cd src
 $ rm Makefile
 $ cp ../Makefile-OSX.mk ./Makefile
 ```
 
-`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. The way it has been setup from default will not work for cretain cases. If your `Makefile` does not work, you have to set the `PROJECT_DIR` to your project location manually.
+`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. The way it has been setup from default may not work for cretain cases. If `Makefile` for your project does not work, you have to set the `PROJECT_DIR` to your project location manually.
 
 You can modify the `Makefile` to suit your needs:
 
@@ -113,7 +113,7 @@ You can modify the `Makefile` to suit your needs:
   * So `BOARD_TAG = pro` and `BOARD_SUB = 8MHzatmega328`
 * `MONITOR_PORT` is the device full path (required if you want to upload to the board). An example is `/dev/tty.usbserial-A20356BI`
 
-### 7. Compile and upload your code
+### 5. Compile and upload your code
 
 Go to the folder where Makefile is stored and compile the project
 
