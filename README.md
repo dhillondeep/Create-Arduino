@@ -4,7 +4,7 @@
 
 [Bare Arduino Project](https://github.com/ladislas/Bare-Arduino-Project) let's you create Arduino projects without using Arduino IDE. You can use your favorite text editor such as Vim or SublimeText to do so. For further information, check their [README.md](https://github.com/ladislas/Bare-Arduino-Project/blob/master/README.md).
 
-This repository contains a shell script that let's you create Arduino projects using Bare Arduino Project very easily. It removes unnecessary files and gives you a simple project up and running in no time.
+This repository contains a shell script that let's you create Arduino projects using Bare-Arduino-Project very easily. The focus of this repository is to create single working project while Bare-Arduino-Project focuses on creating a folder to hold of bunch of arduino projects and they will only work if they are in the folder. So, Create-Arduino removes unnecessary files and gives you a simple project up and running in no time.
 
 
 ## How to Use
@@ -91,23 +91,29 @@ $ pip install pyserial
 
 To compile arduino code, we need to have a Makefile for the project we want to compile
 
-`cd` to `src/Main` folder of your project:
+`cd` to `src` folder of your project:
 
 ```Bash
-$ cd src/Main
+$ cd src
 ```
 
 Then copy the `Makefile-Example.mk`:
 
 ```Bash
 # if you are on OS X
-$ cp ../../Makefile-OSX.mk ./Makefile
+$ cp ../Makefile-OSX.mk ./Makefile
 
 # or if you're running Linux
 $ cp ../../Makefile-Linux.mk ./Makefile
 ```
 
-Modify the `Makefile` to suit your needs:
+`Makefile` has a `PROJECT_DIR` which defines the full path of the root project folder. They way it has been setup from default will not work in our case. You have to edit it to following:
+
+```Bash
+PROJECT_DIR       = $(abspath $(shell basename $(CURDIR))/../..)
+```
+
+You can modify the `Makefile` to suit your needs:
 
 * `PROJECT_DIR` is the full path to the root project folder
 .
@@ -126,28 +132,27 @@ Sample code
 
 ```c++
 #include <Arduino.h>
-#include <Wire.h>
 
 void setup() {
-
-        Serial.begin(115200);
-        delay(1000);
+	Serial.begin(115200);
+	delay(1000);
 }
 
 void loop() {
-
-        Serial.println("Hello world");
+	Serial.println("Hello world");
 }
 
 ```  
 
 ### 5. Compile and upload your code
 
-Then compile and upload your code to an **Arduino Uno**:
+Go to the folder where Makefile is stored and compile the project
 
 ```Bash
 $ make
 $ make upload
 ```
 
-This install guide is mostly inspired by the install guide of Bare-Arduino-Project. For the full procedure, please check [INSTALL.md](https://github.com/ladislas/Bare-Arduino-Project/README.md).
+So, every time you want to create an arduino project, just call the script with appropriate parameters and it will create an Arduino project for you.
+
+This install guide is inspired by the install guide of Bare-Arduino-Project. For the full procedure, please check [INSTALL.md](https://github.com/ladislas/Bare-Arduino-Project/blob/master/INSTALL.md).
