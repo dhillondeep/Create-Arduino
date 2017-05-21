@@ -144,7 +144,7 @@ void loop() {
 
 ```  
 
-### 5. Compile and upload your code
+### 7. Compile and upload your code
 
 Go to the folder where Makefile is stored and compile the project
 
