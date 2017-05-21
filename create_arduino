@@ -28,7 +28,6 @@ git submodule update --init --recursive
 sudo rm -r "$projectPath/.git" "$projectPath/.gitignore" "$projectPath/.gitmodules"
 
 # remove all other unnecessary files
-rm "$projectPath/bare-arduino.sublime-project"
 rm "$projectPath/CONTRIBUTING.md"
 rm "$projectPath/LICENSE.md"
 rm "$projectPath/README.md"
