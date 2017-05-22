@@ -1,8 +1,8 @@
 #!/bin/bash
 
-projectName="$1"								# project name
-projectPath="$(realpath $2/$projectName)"		# project path
-scriptPath="$(pwd)"								# current path of the script
+projectName="$1"													# project name
+projectPath="$(realpath $2/$projectName)"							# project path
+scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"		# current path of the script
 
 # check for directory provided existance
 if [ ! -d "$(realpath $2)" ]; then
