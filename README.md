@@ -113,7 +113,11 @@ You can modify the `Makefile` to suit your needs:
   * So `BOARD_TAG = pro` and `BOARD_SUB = 8MHzatmega328`
 * `MONITOR_PORT` is the device full path (required if you want to upload to the board). An example is `/dev/tty.usbserial-A20356BI`
 
-### 5. Compile and upload your code
+### 5. Libraries for your project
+
+All the libraries for the project should be placed in lib folder of your project. Let's say you have a library called `EXAMPLE.h`. Create a folder called `EXAMPLE` in `lib` folder and place all the files related to that library in that folder. The name of the folder and the file should be same. 
+
+### 6. Compile and upload your code
 
 Go to the folder where Makefile is stored and compile the project
 
